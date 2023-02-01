@@ -14,23 +14,23 @@ type AppProps = {
 export function App({ message }: AppProps) {
 
    
-  const tick2$ = useMemo( () => interval(1000).pipe(
-    tap( n =>  {
-      if(n === 3){
-         throw new Error("Error 2")
-       //EMPTY - swallow error
-      } 
-    })
-  ), [])
+  // const tick2$ = useMemo( () => interval(1000).pipe(
+  //   tap( n =>  {
+  //     if(n === 3){
+  //        throw new Error("Error 2")
+  //      //EMPTY - swallow error
+  //     } 
+  //   })
+  // ), [])
   
   
   //const [count, setCount] = useState(0)
   //useSubscription( tick$, n => setCount(n))
 
-  const [ error, setError ] = useState('')
-  const count = useObservable(tick2$, 0, err => setError(err.message))
+  // const [ error, setError ] = useState('')
+  // const count = useObservable(tick2$, 0, err => setError(err.message))
 
-  return <div> { count  } -  { message} </div>
+  return <div>  { message} </div>
 
    
 } 
