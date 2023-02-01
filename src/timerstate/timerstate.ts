@@ -11,7 +11,7 @@ export const initialCountState: CountState ={
   ticking: false,
   direction: '+' ,
   count: 0 ,
-  to: 10,
+  to: Infinity,
   step:1,
   speed: 1000,
 }

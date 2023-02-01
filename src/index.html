@@ -1,13 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React Typescript Webpack Starter</title>
-</head>
-<body>
-    <h3>React Typescript Webpack Starter</h3>
+    <style>
+      #count-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 200px;
+      }
+      div {
+        margin-bottom: 1rem;
+      }
+      #user-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 200px;
+      }
+      div {
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>RxJs Playgroun</h3>
     <div id="root"></div>
-</body>
+    <div id="user-wrapper">
+        <h1>Users</h1>
+
+        <div>Add a User (name, age)</div>
+        <input id="username" type="text"  >
+        <input id="userage" type="number"  >
+        <hr>
+      
+        <div *ngFor="let user of vm.users">
+          <button (click)="deleteUserState.next(user)" >X</button>  
+          <button (click)="detailUserState.next(user)" >detail</button>
+          {{user.name}}
+        </div> 
+        
+        <div style="margin-top:1em" *ngIf="vm.selectedUser">
+          {{vm.selectedUser.id}} - {{vm.selectedUser.name}} - {{ vm.selectedUser.age }}
+          <button (click)="closeDetailState.next()">close</button>
+        </div>
+      
+    </div>
+    <hr />
+    <div id="count-wrapper">
+      <div>
+        <button id="start">Start</button>
+      </div>
+      <div>
+        <button id="pause">Pause</button>
+      </div>
+      <div>
+        <button id="start">Reset</button>
+      </div>
+      <div>
+        <label for="speed">Speed</label>
+        <input type="number" id="speed" />
+      </div>
+      <div>
+        <label for="step">Step</label>
+        <input type="number" id="step" />
+      </div>
+      <div>
+        <label for="to">count to</label>
+        <input type="number" id="to" />
+      </div>
+      <div>
+        <label for="direction">count up/down</label>
+        <select name="direction" id="direction">
+          <option selected value="+">+</option>
+          <option value="-">-</option>
+        </select>
+      </div>
+    </div>
+  </body>
 </html>
